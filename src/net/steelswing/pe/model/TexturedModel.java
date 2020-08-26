@@ -35,6 +35,10 @@ public class TexturedModel extends Model {
     public ModelTexture getModelTexture() {
         return modelTexture;
     }
+
+    public void setModelTexture(ModelTexture modelTexture) {
+        this.modelTexture = modelTexture;
+    }
     
     public TexturedModel copy() {
         return new TexturedModel(getName() + "_COPY", rawModel, modelTexture.copy());

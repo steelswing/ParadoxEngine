@@ -20,6 +20,7 @@ import net.steelswing.pe.scene.renderer.ShadowRenderer;
 import net.steelswing.pe.scene.renderer.SkyboxRenderer;
 import net.steelswing.pe.util.Log;
 import net.steelswing.pe.util.MathUtil;
+import net.steelswing.pe.util.debug.Shapes;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
@@ -60,15 +61,16 @@ public class RenderSystem {
         multisampleFbo = new Fbo(Window.getWidth(), Window.getHeight());
         outputFbo = new Fbo(Window.getWidth(), Window.getHeight(), Fbo.DEPTH_TEXTURE);
         outputFbo2 = new Fbo(Window.getWidth(), Window.getHeight(), Fbo.DEPTH_TEXTURE);
-
         currentCamera = new Camera();
+
 
         projectionMatrix = MathUtil.createProjectionMatrix(1000.0f, 0.001f, 70f);
         viewMatrix = currentCamera.getViewMatrix();
 
         modelRenderer = new ModelRenderer();
-        shadowRenderer = new ShadowRenderer(new Light("TMP", new Vector3f(), new Vector3f()));
+        shadowRenderer = new ShadowRenderer(new Light("MAIN_LIGHT", new Vector3f(1111), new Vector3f(1111)));
         skyboxRenderer = new SkyboxRenderer();
+        skyboxRenderer.loadSkyBoxModel(Shapes.SPHERE_MODEL);
     }
 
     /**

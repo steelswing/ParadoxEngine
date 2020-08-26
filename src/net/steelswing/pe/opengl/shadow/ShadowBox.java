@@ -1,7 +1,7 @@
 
 package net.steelswing.pe.opengl.shadow;
 
-import net.steelswing.test.MagicSword;
+import net.steelswing.pe.opengl.RenderSystem;
 import net.steelswing.pe.scene.Camera;
 import org.lwjglx.opengl.Display;
 import org.lwjglx.util.vector.Matrix4f;
@@ -61,8 +61,8 @@ public class ShadowBox {
 
         Vector3f toFar = new Vector3f(forwardVector);
  
-        if(lastDistance != MagicSword.getInstance().getSettingsManager().getShadowDistance()) {
-            lastDistance = MagicSword.getInstance().getSettingsManager().getShadowDistance();
+        if(lastDistance != RenderSystem.getSettings().getShadowDistance()) {
+            lastDistance = RenderSystem.getSettings().getShadowDistance();
             calculateWidthsAndHeights();
         }
         toFar.scale(lastDistance);
@@ -218,7 +218,7 @@ public class ShadowBox {
      * but means that distant objects wouldn't cast shadows.
      */
     private void calculateWidthsAndHeights() {
-        farWidth = (float) (MagicSword.getInstance().getSettingsManager().getShadowDistance() * Math.tan(Math.toRadians(cam.getFov())));
+        farWidth = (float) (RenderSystem.getSettings().getShadowDistance() * Math.tan(Math.toRadians(cam.getFov())));
         nearWidth = (float) (cam.getNear() * Math.tan(Math.toRadians(cam.getFov())));
         farHeight = farWidth / getAspectRatio();
         nearHeight = nearWidth / getAspectRatio();

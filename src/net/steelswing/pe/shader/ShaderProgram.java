@@ -5,12 +5,11 @@
  */
 package net.steelswing.pe.shader;
 
-import java.io.InputStream;
 import java.nio.FloatBuffer;
-import java.util.Scanner;
 import net.steelswing.pe.opengl.MultiGL;
 import net.steelswing.pe.opengl.Window;
 import net.steelswing.pe.util.Log;
+import net.steelswing.pe.util.Utils;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL21;
 import org.lwjglx.util.vector.Matrix4f;
@@ -82,11 +81,11 @@ public abstract class ShaderProgram {
         String gl3file = file.replaceAll("vs", "vs3").replaceAll("fs", "fs3");
 
         String source;
-        if (getResourceAsFile(gl3file) != null && Window.openGL30) {
-            source = getResourceAsFile(gl3file);
+        if (Utils.getResourceAsFile(gl3file) != null && Window.openGL30) {
+            source = Utils.getResourceAsFile(gl3file);
             Log.debug("OpenGL 3.0 is supported & GL3 shader found, loading GL3 shader...");
         } else {
-            source = getResourceAsFile(file);
+            source = Utils.getResourceAsFile(file);
         }
 
         GL21.glShaderSource(shaderID, source);
@@ -99,20 +98,6 @@ public abstract class ShaderProgram {
 //            throw new RuntimeException("Could not compile shader!");
         }
         return shaderID;
-    }
-
-    public static String getResourceAsFile(String resourcePath) {
-        String result = null;
-        try {
-            InputStream in = ClassLoader.getSystemClassLoader().getResourceAsStream(resourcePath);
-            if (in != null) {
-                Scanner s = new Scanner(in).useDelimiter("\\A");
-                result = s.hasNext() ? s.next() : "";
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
     }
 
     // -- [INT] --

@@ -4,8 +4,8 @@ package net.steelswing.pe.scene.renderer;
 import java.util.ArrayList;
 import java.util.List;
 import net.steelswing.pe.model.Model;
-import net.steelswing.pe.opengl.RenderSystem;
 import net.steelswing.pe.opengl.Light;
+import net.steelswing.pe.opengl.RenderSystem;
 import net.steelswing.pe.opengl.Renderer;
 import net.steelswing.pe.opengl.shadow.ShadowBox;
 import net.steelswing.pe.opengl.shadow.ShadowFrameBuffer;
@@ -46,6 +46,7 @@ public class ShadowRenderer extends Renderer {
     }
 
     public ShadowRenderer(Light sun) {
+        this.sun = sun;
         try {
             shader = new ShadowShader();
         } catch (Exception ex) {
@@ -62,6 +63,9 @@ public class ShadowRenderer extends Renderer {
 
     @Override
     public void render() {
+        if (sun.getPosition().x == 0 || sun.getPosition().y == 0 || sun.getPosition().z == 0) {
+            return;
+        }
         if (lastShadowMapSize != size) {
             lastShadowMapSize = size;
             shadowFbo = new ShadowFrameBuffer(size, size);

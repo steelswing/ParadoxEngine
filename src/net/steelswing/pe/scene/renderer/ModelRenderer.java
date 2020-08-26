@@ -7,7 +7,6 @@ package net.steelswing.pe.scene.renderer;
 
 import java.util.ArrayList;
 import java.util.List;
-import net.steelswing.test.model.ModelManager;
 import net.steelswing.pe.model.TexturedModel;
 import net.steelswing.pe.model.loader.RawModel;
 import net.steelswing.pe.opengl.Light;
@@ -18,6 +17,7 @@ import net.steelswing.pe.scene.object.GameObject;
 import net.steelswing.pe.shader.common.CommonShader;
 import net.steelswing.pe.util.Log;
 import net.steelswing.pe.util.MathUtil;
+import net.steelswing.pe.util.debug.Shapes;
 import org.lwjgl.opengl.GL21;
 import org.lwjglx.util.vector.Matrix4f;
 import org.lwjglx.util.vector.Vector2f;
@@ -126,7 +126,7 @@ public class ModelRenderer extends Renderer {
                     {
                         GL21.glLineWidth(2f);
                         GL21.glPolygonMode(GL21.GL_FRONT_AND_BACK, GL21.GL_LINE);
-                        TexturedModel cb = ModelManager.BOX_MODEL.copy();
+                        TexturedModel cb = Shapes.CUBE_MODEL.copy();
                         cb.setScale(obj.getEnd());
                         cb.setPosition(new Vector3f(
                                 obj.getAabb().getMinExtents().x + (cb.getScale().x / 2),

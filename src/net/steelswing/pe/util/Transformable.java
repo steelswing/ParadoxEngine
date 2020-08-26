@@ -16,15 +16,13 @@ public class Transformable<E> {
     
     private E element;
     
-    
-
     protected Vector3f // Vectors
             position,
             center,
             rotation,
             scale;
-
-    public Transformable(Vector3f position, Vector3f center, Vector3f rotation, Vector3f scale) {
+    
+    public Transformable(  Vector3f position, Vector3f center, Vector3f rotation, Vector3f scale) {
         this.position = position;
         this.rotation = rotation;
         this.center = center;
@@ -33,6 +31,10 @@ public class Transformable<E> {
 
     public Transformable() {
         this(new Vector3f(), new Vector3f(), new Vector3f(), new Vector3f(1f, 1f, 1f));
+    }
+
+    public void setElement(E element) {
+        this.element = element;
     }
 
     public Vector3f getPosition() {

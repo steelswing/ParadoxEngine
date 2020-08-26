@@ -128,13 +128,14 @@ void main() {
         }
             
         // GLSL 1.20 - gl_FragData[0] - OUT COLOR!
+        
 
+ 
         gl_FragData[0] = mix(vec4(skyColor, 1.0), vec4(finalDiffuse, 1) * textureColor + vec4(finalSpecular, 1), visibility);
     } else {
         gl_FragData[0] = vec4(debugColor, 1);
-        gl_FragData[1] = gl_FragData[0];
     }
+    gl_FragData[1] = gl_FragData[0];
 
     
-
 }

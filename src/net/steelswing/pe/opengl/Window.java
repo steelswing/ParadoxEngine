@@ -5,8 +5,10 @@
 
 package net.steelswing.pe.opengl;
 
+import java.nio.file.Files;
 import net.steelswing.pe.io.Input;
 import net.steelswing.pe.util.Log;
+import net.steelswing.pe.util.Utils;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
@@ -26,6 +28,8 @@ import org.lwjglx.util.vector.Matrix4f;
  * @author MrJavaCoder
  */
 public class Window {
+
+    public static final String VERSION = "1.0.0, Build 25";
 
     private static int maxFps = 120;
     public static long lastFrame;
@@ -50,7 +54,7 @@ public class Window {
                 String msg = MemoryUtil.memUTF8(MemoryUtil.memByteBuffer(message, length));
                 Log.error(msg);
             }
-        }; //        String msg = MemoryUtil.memDecodeUTF8(memByteBuffer(message, length));
+        };
         new GLDebugMessageARBCallback() {
             @Override
             public void invoke(int source, int type, int id, int severity, int length, long message, long userParam) {
@@ -76,23 +80,18 @@ public class Window {
         openGL30 = gLCapabilities.OpenGL30;
         ARB = gLCapabilities.GL_ARB_framebuffer_object;
         EXT = gLCapabilities.GL_EXT_framebuffer_object;
-//        gLCapabilities.GL_EXT_texture
 
-//        Display.setParent(parent);
-        Log.info("###################################################");
+        Log.info("#===================INFO===================#");
         Log.info("OS name " + System.getProperty("os.name"));
         Log.info("OS version " + System.getProperty("os.version"));
+        Log.info("ParadoxEngine version: " + VERSION);
         Log.info("LWJGL version " + org.lwjglx.Sys.getVersion());
         Log.info("OpenGL version " + GL11.glGetString(GL11.GL_VERSION));
-        Log.info(title + " by LWJGL2(MrJavaCoder(SkyCrafting_)) XD");
-        Log.info("OpenGL 2.1 is " + (gLCapabilities.OpenGL21 ? "" : "not ") + "supported!");
         Log.info("OpenGL 3.0 is " + (gLCapabilities.OpenGL30 ? "" : "not ") + "supported!");
         Log.info("ARB_framebuffer_object is " + (gLCapabilities.GL_ARB_framebuffer_object ? "" : "not ") + "supported.");
         Log.info("EXT_framebuffer_object is " + (gLCapabilities.GL_EXT_framebuffer_object ? "" : "not ") + "supported.");
-        Log.info("###################################################");
+        Log.info("#==========================================#");
         lastFrameTime = getCurrentTime();
-//        projectionMatrix = MathUtil.createProjectionMatrix(Camera.far, Camera.near, Camera.fov);
-
     }
 
     public static void runGameLoop() {
@@ -100,6 +99,10 @@ public class Window {
             running = true;
         } else {
             return;
+        }
+        try {
+            Files.delete(Utils.TEMP_FOLDER.toPath());
+        } catch (Exception e) {
         }
         RenderSystem.initialize();
         while (!Window.isCloseRequested()) {
@@ -120,6 +123,10 @@ public class Window {
 //                projectionMatrix = MathUtil.createProjectionMatrix(Camera.far, Camera.near, Camera.fov);
             }
             Window.update();
+        }
+        try {
+            Files.delete(Utils.TEMP_FOLDER.toPath());
+        } catch (Exception e) {
         }
         RenderSystem.destroy();
     }

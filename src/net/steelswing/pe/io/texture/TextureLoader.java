@@ -37,21 +37,16 @@ public class TextureLoader {
     }
 
     public static int loadTexture(File texturePath) throws Exception {
-        Texture texture = getTexture("PNG", new FileInputStream(texturePath));
+        Texture texture = getTexture("PNG", new FileInputStream(texturePath), GL21.GL_NEAREST);
         int textureId = texture.getTextureID();
-//        textures.add(textureId);
-////        enableMipMap();
-////        if (GLContext.getCapabilities().GL_EXT_texture_filter_anisotropic) {
-////            float ammout = Math.min(4f, GL21.glGetFloat(EXTTextureFilterAnisotropic.GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT));
-////            GL21.glTexParameterf(GL21.GL_TEXTURE_2D, EXTTextureFilterAnisotropic.GL_TEXTURE_MAX_ANISOTROPY_EXT, ammout);
-////             GL21.glTexParameteri(GL21.GL_TEXTURE_CUBE_MAP, GL21.GL_TEXTURE_MAG_FILTER, GL21.GL_NEAREST);
-////        } else {
-////            Log.error("Anisotropic is not supported :(");
-////        }
-//        
-//        int textureId = TextureLoaderNew.loadTexture(texturePath).getId();
-// 
-//        textures.add(textureId);
+        textures.add(textureId);
+//        if (filter != GL21.GL_NEAREST) {
+//        }
+        try {
+            enableMipMap();
+        } catch (Exception e) {
+        }
+
         return textureId;
     }
 

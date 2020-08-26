@@ -33,7 +33,7 @@ public class RenderSettings {
 
     // Debug
     public boolean //
-            showPolygons = false,
+            showPolygons = true,
             showCollision = true;
 
 

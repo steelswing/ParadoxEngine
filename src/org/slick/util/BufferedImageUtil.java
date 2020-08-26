@@ -5,7 +5,6 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-
 import org.slick.opengl.ImageIOImageData;
 import org.slick.opengl.InternalTextureLoader;
 import org.slick.opengl.Texture;

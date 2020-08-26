@@ -5,8 +5,10 @@ import java.nio.ByteBuffer;
 import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
+import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL14;
+import org.lwjgl.opengl.GLCapabilities;
 
 /**
  * The default OpenGL renderer, uses immediate mode for everything
@@ -408,14 +410,15 @@ public class ImmediateModeOGLRenderer implements SGL {
         GL14.glSecondaryColor3ub(b, c, d);
         //EXTSecondaryColor.glSecondaryColor3ubEXT(b,c,d);
     }
+    private GLCapabilities gLCapabilities = GL.createCapabilities();
 
     @Override
     public boolean canTextureMirrorClamp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return gLCapabilities.GL_EXT_texture_mirror_clamp;
     }
 
     @Override
     public boolean canSecondaryColor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return gLCapabilities.GL_EXT_secondary_color;
     }
 }

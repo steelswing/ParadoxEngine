@@ -18,7 +18,7 @@ import org.lwjglx.util.vector.Vector3f;
  *
  * @author MrJavaCoder
  */
-public class Camera extends Transformable {
+public class Camera extends Transformable<Camera> {
 
     private float // 
             fov = 75.0f,
@@ -40,16 +40,18 @@ public class Camera extends Transformable {
             blockedRotation;
 
     public Camera() {
-        super();
         this.viewMatrix = MathUtil.createViewMatrix(this);
+        setElement(this);
     }
 
     public Camera(Vector3f position, Vector3f rotation, Vector3f scale) {
         super(position, new Vector3f(), rotation, scale);
+        setElement(this);
     }
 
     public Camera(boolean freecam, Vector3f position, Vector3f rotation, Vector3f scale) {
         super(position, new Vector3f(), rotation, scale);
+        setElement(this);
         this.freecam = freecam;
     }
 
