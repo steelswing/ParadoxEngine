@@ -10,13 +10,9 @@
 ### Example 
 
 ```java
-/**
- *
- * @author MrJavaCoder
- */
-public class CollisionTest {
-
-    public CollisionTest() {
+public class GameTest {
+    
+    public GameTest() {
         Scene mainScene = new Scene("MAIN_SCENE");
 
         Camera mainCamera = new Camera(); // Creating a new free-camera
@@ -43,7 +39,7 @@ public class CollisionTest {
         MultiGL.initialize(MultiGL.FrameBufferObjectMode.ARB); // Set OpenGL fbo mode
         Window.create("Collision test", 1280, 620); // Create a window
         {
-            CollisionTest test = new CollisionTest();
+            GameTest test = new GameTest();
             Window.runGameLoop(); // Run game loop
         }
         Window.destroyWindow(); // Destroy a window when close game
