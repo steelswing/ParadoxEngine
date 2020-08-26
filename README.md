@@ -7,5 +7,5 @@
 2. Connect .jar file as a library in your project.
 3. Soon...
 
-#### Use the library
+#### Used libraries
 - LWJGL 3.2.1
