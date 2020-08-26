@@ -11,7 +11,6 @@
 ![](preview.png)
 
 ```java
-// SIMPLE GAME
 public class GameTest {
 
     public GameTest() throws Exception {
