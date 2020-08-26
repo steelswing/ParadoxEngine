@@ -8,6 +8,7 @@
 3. Soon...
 
 ### Example 
+![](preview.png)
 
 ```java
 // SIMPLE GAME
@@ -54,6 +55,7 @@ public class GameTest {
     }
 }
 ```
+
 
 #### Used libraries
 - LWJGL 3.2.1 [https://www.lwjgl.org/]
