@@ -1,5 +1,5 @@
 # ParadoxEngine
- The lightweight java game engine!
+ The lightweight java 3D game engine!
 
 ### Getting Started
 
