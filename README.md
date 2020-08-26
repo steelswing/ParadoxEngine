@@ -13,20 +13,19 @@
 public class GameTest {
     
     public GameTest() {
-        Scene mainScene = new Scene("MAIN_SCENE");
-
+        Scene mainScene = new Scene("MAIN_SCENE"); // Creating a main scene
         Camera mainCamera = new Camera(); // Creating a new free-camera
 
-        GameObject box = new GameObject("BOX", Shapes.getCubeModel(), new Vector3f(0), new Vector3f(2)) { // Creating a new game object
+        GameObject box = new GameObject("BOX", Shapes.getCubeModel(), 
+                new Vector3f(0), new Vector3f(2)) { // Creating a new game object
             @Override
-            public void update(float delta) {
-            }
+            public void update(float delta) { }
         }.setScale(1f).setPosition(new Vector3f(1, 4, 1)); // Set scale & position
 
-        GameObject box2 = new GameObject("BOX2", Shapes.getCubeModel(), new Vector3f(0), new Vector3f(5)) { // Creating a new game object
+        GameObject box2 = new GameObject("BOX2", Shapes.getCubeModel(), 
+                new Vector3f(0), new Vector3f(5)) { // Creating a new game object
             @Override
-            public void update(float delta) {
-            }
+            public void update(float delta) { }
         }.setScale(new Vector3f(5, 1, 5)).setPosition(new Vector3f(0, 0, 0)); // Set scale & position
 
         mainScene
