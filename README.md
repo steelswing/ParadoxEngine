@@ -8,4 +8,5 @@
 3. Soon...
 
 #### Used libraries
-- LWJGL 3.2.1
+- LWJGL 3.2.1 [https://www.lwjgl.org/]
+- Zip4j [https://github.com/srikanth-lingala/zip4j]
