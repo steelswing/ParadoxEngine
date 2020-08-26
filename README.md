@@ -36,7 +36,7 @@ public class GameTest {
 
     public static void main(String[] args) throws LWJGLException {
         MultiGL.initialize(MultiGL.FrameBufferObjectMode.ARB); // Set OpenGL fbo mode
-        Window.create("Collision test", 1280, 620); // Create a window
+        Window.create("Game test", 1280, 620); // Create a window
         {
             GameTest test = new GameTest();
             Window.runGameLoop(); // Run game loop
