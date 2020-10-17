@@ -1,3 +1,9 @@
+# This version game engine is deprecated!
+In the process of writing a new stable version, with a gui interface and much more...
+
+
+
+
 # ParadoxEngine
  The lightweight java 3D game engine!
 
@@ -60,3 +66,6 @@ public class GameTest {
 - LWJGL 3.2.1 [https://www.lwjgl.org/]
 - Zip4j [https://github.com/srikanth-lingala/zip4j]
 - Apache commons-io-1.3.2
+
+
+My english is bad :(
