@@ -24,7 +24,7 @@ In the process of writing a new stable version, with a gui interface and much mo
 - Shadow mapping
 
 # Plans
-- Gui editor
+- Gui(UI & Scene) editor (in progress)
 - Particle system
 - 3D Audio system
 - Code reorganization
