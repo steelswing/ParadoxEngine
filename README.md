@@ -6,6 +6,28 @@ In the process of writing a new stable version, with a gui interface and much mo
 
 # ParadoxEngine
  The lightweight java 3D game engine!
+# Opportunities
+- Loading models & textures in 1 line
+- Skeleton animation support
+- Jbullet physics support
+- EnityComponent system (inspired by unity)
+- First & 3rd person camera 
+- Water
+- Terrain generation(perlin noise or island generator) support
+- 2D Graphics support (for gui)
+- RayCast support
+- Russian javadoc
+#### - Render
+- SSAO
+- BLOOM 
+- Frustrum culling
+- Shadow mapping
+
+# Plans
+- Gui editor
+- Particle system
+- 3D Audio system
+- Code reorganization
 
 ### Getting Started
 
