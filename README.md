@@ -15,6 +15,7 @@ In the process of writing a new stable version, with a gui interface and much mo
 - Water
 - Terrain generation(perlin noise or island generator) support
 - 2D Graphics support (for gui)
+- 3D Audio system
 - RayCast support
 - Russian javadoc
 #### - Render
@@ -26,7 +27,6 @@ In the process of writing a new stable version, with a gui interface and much mo
 # Plans
 - Gui(UI & Scene) editor (in progress)
 - Particle system
-- 3D Audio system
 - Code reorganization
 
 ### Getting Started
